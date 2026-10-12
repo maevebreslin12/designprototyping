@@ -57,6 +57,29 @@ All in `src/styles/tokens.css` (Tailwind v4 `@theme`). Use semantic utilities, n
 
 Compositions (visual references only): `src/compositions/{HomeScreen,AccountScreen,LoginScreen}.tsx`.
 
+## Production codebase map (UNVERIFIED — from Storybook metadata only)
+Source: Storybook `index.json`, `project.json` and `preview-stats.json` shared from the customer-portal monorepo. These list file/story names and dependencies only. **No source, tokens or styles were seen**, so equivalence below is inferred from names.
+
+**Production stack:** Nx + pnpm monorepo; `apps/customer-portal` (Next.js 16, Storybook 10 `nextjs-vite`); shared UI in `libs/ui/src`; Tailwind **3.4.1**; Radix UI primitives (accordion, collapsible, dialog, dropdown-menu, navigation-menu, popover, progress, radio-group, scroll-area, select, separator, tabs, tooltip) plus Headless UI; zustand, TanStack Query, next-intl.
+**This repo:** Vite + React + **Tailwind 4** (`@theme` / `@utility`), lucide icons, no Radix.
+
+`libs/ui/src/components` groups and our equivalents:
+| Production (`libs/ui`) | Ours | Status |
+|---|---|---|
+| primitives: Button, IconButton, Badge, Pill, Separator, Progress, Spinner, Skeleton, ScrollArea, AspectRatio, Icon, Illustration, Image, Logo, OverlappingImageGroup | Button (incl. icon sizes), Badge, Separator, Stepper (partial) | Pill, Progress, Skeleton, Spinner, ScrollArea, Illustration, Logo missing/placeholder |
+| typography: TextHero, TextTitle, TextSubtitle, TextBody, TextControl, TextEyebrow, TextHighlight | `type-*` utility classes | Same scale by intent; production uses components, we use classes. TextHighlight (green emphasis?) not implemented |
+| form: Input, Field, Label, InputError, InputGroup, Password, Textarea, Checkbox, RadioGroup, Select, Combobox, Form, InlineForm | Input, Field, Label | Rest missing |
+| data-display: Card, HeadedSection, Item, Stepper, Accordion, Collapsible, Table, DiscountTag | Card + CardHeader (≈ HeadedSection), ItemTile, Stepper | Item, Accordion, Collapsible, Table, DiscountTag missing |
+| feedback: Alert, DismissableAlert, Callout, Empty, Sonner | Alert | Others missing |
+| navigation: Header, Footer, NavigationMenu, ResponsiveNavigation, Tabs, Pagination | TopNav, BottomNav, SiteFooter | Tabs, Pagination, responsive/desktop nav missing |
+| overlay: Dialog, AlertDialog, Drawer, Sheet, DropdownMenu, Popover, Tooltip, Notifications | — | none |
+| layout: Container, Section, Stack, Flex, Grid, Column, Inline, Main, Article, HorizontalRule, FloatingContainer, AnimatedHeaderSection | Tailwind utilities | production has layout components; we use utilities |
+| sections: hero, authentication, marketing | HomeScreen/LoginScreen compositions | — |
+
+Domain stories (customer-portal) not yet represented here: DeliveryCard / DeliveryCardTabs / DeliveryStepper / InYourBox, OrderPreviewCard / OrderReceipt / PastOrders, PaymentMethod* (OverviewCard, ExpiryPill, EmptyState), RetentionHero (+Slider), BenefitsOfFresh, FeedingTips, RewardsOffers, ScrollableProducts, and edit/search-address forms.
+
+**Open decision — Tailwind version.** Production is Tailwind 3.4; this repo is 4. Tokens are CSS variables and component class strings are largely portable, but `@theme` and `@utility` are v4-only. If prototypes must be copy-pasteable into the monorepo, move to a v3 `tailwind.config.ts` + `@layer` utilities. Not changed yet.
+
 ## Usage guidelines
 - One black or chartreuse primary action per view; secondary actions use `tertiary`; irreversible actions use `destructive`.
 - Group related info in `Card` + `CardHeader` (icon + title). Muted supporting text is `text-fg-muted-strong`, never lighter than that for readable content.
