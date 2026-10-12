@@ -78,7 +78,7 @@ Source: Storybook `index.json`, `project.json` and `preview-stats.json` shared f
 
 Domain stories (customer-portal) not yet represented here: DeliveryCard / DeliveryCardTabs / DeliveryStepper / InYourBox, OrderPreviewCard / OrderReceipt / PastOrders, PaymentMethod* (OverviewCard, ExpiryPill, EmptyState), RetentionHero (+Slider), BenefitsOfFresh, FeedingTips, RewardsOffers, ScrollableProducts, and edit/search-address forms.
 
-**Open decision — Tailwind version.** Production is Tailwind 3.4; this repo is 4. Tokens are CSS variables and component class strings are largely portable, but `@theme` and `@utility` are v4-only. If prototypes must be copy-pasteable into the monorepo, move to a v3 `tailwind.config.ts` + `@layer` utilities. Not changed yet.
+**Decision — Tailwind version: stay on v4.** Production is on Tailwind 3.4; this repo is a standalone sandbox and keeps v4 (`@theme`, `@utility`). Tokens are plain CSS variables and component class strings are mostly portable, but anything pasted into the monorepo needs `@theme`/`@utility` rewritten as a v3 `tailwind.config` + `@layer`. Don't spend effort on v3 compatibility in prototypes.
 
 ## Usage guidelines
 - One black or chartreuse primary action per view; secondary actions use `tertiary`; irreversible actions use `destructive`.

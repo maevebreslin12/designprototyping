@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Frontend-only prototyping environment (React + TS + Vite + Tailwind v4). No backend, DB, auth or external APIs.
+Frontend-only prototyping environment (React + TS + Vite + Tailwind v4 — a deliberate choice; production uses v3.4, don't downgrade). No backend, DB, auth or external APIs.
 
 ## Design foundation — always follow
 Read `DESIGN_FOUNDATION.md` before any UI work. It lists Figma sources, tokens, component inventory, principles and known deviations.
