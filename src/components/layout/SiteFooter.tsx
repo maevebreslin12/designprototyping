@@ -36,7 +36,7 @@ export function SiteFooter() {
           <Mail /><ThumbsUp /><Camera /><Play />
         </div>
       </div>
-      <div className="flex h-[147px] items-center justify-center overflow-hidden"><Wordmark inverse className="text-[96px]" /></div>
+      <div className="flex h-[147px] items-center justify-center overflow-hidden"><Wordmark inverse className="h-[140px] w-auto" /></div>
       <div className="px-3 pb-4 pt-8 type-body-2 text-fg-subtle">
         <p className="m-0 flex gap-6"><span>© KatKin 2026</span><span>Terms &amp; Conditions</span></p>
         <p className="m-0 mt-3 flex gap-6"><span>Privacy</span><span>Sitemap</span><span>Cookie Settings</span></p>
