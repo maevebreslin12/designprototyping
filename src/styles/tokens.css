@@ -1,0 +1,132 @@
+/*
+ * Design tokens — sourced from "KatKin Product Design System 2026" (Figma).
+ * Two layers: raw palette (--color-*) and semantic roles (--color-bg, --color-fg …).
+ * Components and compositions must use the semantic Tailwind utilities generated below
+ * (bg-bg, bg-surface, text-fg, border-strong …) and never raw hex values.
+ */
+
+/* Fonts: Greed (headings) and Scto Grotesk A (body) are licensed and not in this repo.
+   Open-source stand-ins are used until the real files are dropped into src/assets/fonts
+   (see DESIGN_FOUNDATION.md → "Swapping in the real fonts"). Stand-ins load in src/main.tsx. */
+
+@theme {
+  /* Fonts */
+  --font-heading: 'Greed', 'Archivo Variable', 'Arial Narrow', sans-serif;
+  --font-body: 'Scto Grotesk A', 'Inter', system-ui, sans-serif;
+
+  /* Palette — primary */
+  --color-black: #231f20;
+  --color-white: #ffffff;
+  --color-brand: #d5e709;          /* Primary/Brand (chartreuse) */
+  --color-chartreuse-100: #e7f170;
+  /* Palette — neutrals */
+  --color-paper: #eeefe4;          /* Neutrals/Light Grey (bg) */
+  --color-paper-elevated: #f6f7ee; /* surface/elevated */
+  --color-paper-75: #f8f8f4;
+  --color-surface-subtle: #fcfcfa;
+  --color-sand-200: #dcd5c1;
+  --color-grey-40: #e2e2e2;
+  --color-outline-grey: #c8c7c7;
+  --color-grey-dark: #a3a1a1;
+  --color-grey-mid: #888888;
+  --color-graphite: #565353;
+  --color-charcoal: #4b4748;
+  --color-input: #f4f4f4;
+  --color-ink-inverse: #090c08;    /* color/bg/inverse (footer) */
+  /* Palette — secondary / functional */
+  --color-green: #3eb16a;
+  --color-green-dark: #256c41;     /* brand/green/700 — emphasis text */
+  --color-green-light: #ecf7f0;
+  --color-blue: #45afe2;
+  --color-blue-mid: #b3def3;
+  --color-blue-light: #e8f0f6;
+  --color-pink: #ea8bed;           /* color/functional/bg/price — "Free Gift" / price tags */
+  --color-destructive: #f2542d;    /* functional/border/destructive */
+  --color-destructive-dark: #843118; /* functional/foreground/destructive */
+
+  /* Semantic roles */
+  --color-bg: var(--color-paper);
+  --color-surface: var(--color-white);
+  --color-surface-elevated: var(--color-paper-elevated);
+  --color-fg: var(--color-black);
+  --color-fg-muted: var(--color-grey-mid);
+  --color-fg-muted-strong: var(--color-graphite);
+  --color-fg-inverse: var(--color-white);
+  --color-fg-subtle: var(--color-grey-40);
+  --color-fg-accent: var(--color-green-dark);
+  --color-border-strong: #000000;
+  --color-border-muted: var(--color-outline-grey);
+  --color-focus: var(--color-brand);
+  --color-reassurance-bg: var(--color-blue-light);
+  --color-reassurance-border: var(--color-blue);
+
+  /* Radii (Figma: rounded-xs/sm/md/lg/full) */
+  --radius-xs: 2px;   /* cards, containers */
+  --radius-sm: 4px;   /* inputs */
+  --radius-md: 6px;   /* icon buttons */
+  --radius-lg: 8px;
+
+  /* Spacing base = 4px (Tailwind default). Named layout spacing from Figma: */
+  --spacing-gutter: 16px;       /* section-padding-y-lg — page side gutter */
+  --spacing-section: 24px;      /* section-padding-y-xl */
+
+  /* Type scale (mobile). Size / line-height / tracking come from the Figma semantic text styles. */
+  --text-hero: 80px;        --text-hero--line-height: 0.9;
+  --text-heading-2: 48px;   --text-heading-2--line-height: 0.9;
+  --text-heading-3: 40px;   --text-heading-3--line-height: 0.95;
+  --text-heading-4: 32px;   --text-heading-4--line-height: 1.15;
+  --text-sub-1: 24px;       --text-sub-1--line-height: 1;
+  --text-sub-2: 20px;       --text-sub-2--line-height: 1;
+  --text-sub-3: 18px;       --text-sub-3--line-height: 1;
+  --text-sub-4: 16px;       --text-sub-4--line-height: 1;
+  --text-body-1: 18px;      --text-body-1--line-height: 1.2;
+  --text-body-2: 16px;      --text-body-2--line-height: 1.3;
+  --text-body-3: 14px;      --text-body-3--line-height: 1.3;
+  --text-body-4: 12px;      --text-body-4--line-height: 1.3;
+  --text-control-1: 20px;   --text-control-1--line-height: 1.3;
+  --text-control-2: 16px;   --text-control-2--line-height: 1;
+  --text-control-3: 14px;   --text-control-3--line-height: 1;
+  --text-control-4: 12px;   --text-control-4--line-height: 1.3;
+  --tracking-display: -0.02em;  /* Figma letterSpacing "-2" (%) on headings / body 1-2 */
+
+  /* Shadows (Figma shadow/*) */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-brutal: 1px 3px 0 0 #000;   /* "Neo Brutal" — login card */
+  --shadow-inset-pressed: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+}
+
+@layer base {
+  html { background: var(--color-bg); }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-body);
+    font-size: var(--text-body-2);
+    line-height: 1.3;
+    -webkit-font-smoothing: antialiased;
+  }
+  *:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+}
+
+/* Typography utilities — one class per Figma semantic text style. */
+@utility type-hero      { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-hero);      line-height: 0.9;  letter-spacing: var(--tracking-display); }
+@utility type-heading-2 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-heading-2); line-height: 0.9;  letter-spacing: var(--tracking-display); }
+@utility type-heading-3 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-heading-3); line-height: 0.95; letter-spacing: var(--tracking-display); }
+@utility type-heading-4 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-heading-4); line-height: 1.15; letter-spacing: var(--tracking-display); }
+@utility type-sub-1 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-sub-1); line-height: 1; letter-spacing: var(--tracking-display); }
+@utility type-sub-2 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-sub-2); line-height: 1; letter-spacing: var(--tracking-display); }
+@utility type-sub-3 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-sub-3); line-height: 1; letter-spacing: var(--tracking-display); }
+@utility type-sub-4 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-sub-4); line-height: 1; letter-spacing: var(--tracking-display); }
+@utility type-body-1 { font-family: var(--font-body); font-weight: 400; font-size: var(--text-body-1); line-height: 1.2; letter-spacing: var(--tracking-display); }
+@utility type-body-2 { font-family: var(--font-body); font-weight: 400; font-size: var(--text-body-2); line-height: 1.3; letter-spacing: var(--tracking-display); }
+@utility type-body-3 { font-family: var(--font-body); font-weight: 400; font-size: var(--text-body-3); line-height: 1.3; }
+@utility type-body-4 { font-family: var(--font-body); font-weight: 400; font-size: var(--text-body-4); line-height: 1.3; }
+@utility type-control-1 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-control-1); line-height: 1.3; }
+@utility type-control-2 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-control-2); line-height: 1; }
+@utility type-control-3 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-control-3); line-height: 1; }
+@utility type-control-4 { font-family: var(--font-body);    font-weight: 400; font-size: var(--text-control-4); line-height: 1.3; }
+@utility type-eyebrow   { font-family: var(--font-body); font-weight: 400; font-size: 14px; line-height: 1; letter-spacing: -0.2px; text-transform: uppercase; }
