@@ -4,7 +4,7 @@ export function Wordmark({ className = '', inverse = false }: { className?: stri
   return (
     <span
       aria-label="KatKin"
-      className={`inline-block -rotate-3 font-heading [font-stretch:100%] text-[40px] font-bold italic leading-none tracking-tight ${inverse ? 'text-paper' : 'text-fg'} ${className}`}
+      className={`inline-block -rotate-3 font-heading text-[40px] font-bold italic leading-none tracking-tight ${inverse ? 'text-paper' : 'text-fg'} ${className}`}
     >
       KatKin
     </span>

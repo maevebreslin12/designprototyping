@@ -5,14 +5,19 @@
  * (bg-bg, bg-surface, text-fg, border-strong …) and never raw hex values.
  */
 
-/* Fonts: Greed (headings) and Scto Grotesk A (body) are licensed and not in this repo.
-   Open-source stand-ins are used until the real files are dropped into src/assets/fonts
-   (see DESIGN_FOUNDATION.md → "Swapping in the real fonts"). Stand-ins load in src/main.tsx. */
+/* Licensed brand fonts. Files live in public/fonts and are git-ignored (see DESIGN_FOUNDATION.md);
+   if absent they 404 and the fallback stacks below apply — the build still succeeds. */
+@font-face { font-family: 'Greed'; font-weight: 700; font-display: swap;
+  src: url('/fonts/greed-bold.woff2') format('woff2'); }
+@font-face { font-family: 'Scto Grotesk A'; font-weight: 400; font-display: swap;
+  src: url('/fonts/scto-grotesk-a-regular.woff') format('woff'); }
+@font-face { font-family: 'Scto Grotesk A'; font-weight: 700; font-display: swap;
+  src: url('/fonts/scto-grotesk-a-bold.woff') format('woff'); }
 
 @theme {
   /* Fonts */
-  --font-heading: 'Greed', 'Archivo Variable', 'Arial Narrow', sans-serif;
-  --font-body: 'Scto Grotesk A', 'Inter', system-ui, sans-serif;
+  --font-heading: 'Greed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Scto Grotesk A', 'Helvetica Neue', Arial, system-ui, sans-serif;
 
   /* Palette — primary */
   --color-black: #231f20;
@@ -113,20 +118,20 @@
 }
 
 /* Typography utilities — one class per Figma semantic text style. */
-@utility type-hero      { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-hero);      line-height: 0.9;  letter-spacing: var(--tracking-display); }
-@utility type-heading-2 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-heading-2); line-height: 0.9;  letter-spacing: var(--tracking-display); }
-@utility type-heading-3 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-heading-3); line-height: 0.95; letter-spacing: var(--tracking-display); }
-@utility type-heading-4 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-heading-4); line-height: 1.15; letter-spacing: var(--tracking-display); }
-@utility type-sub-1 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-sub-1); line-height: 1; letter-spacing: var(--tracking-display); }
-@utility type-sub-2 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-sub-2); line-height: 1; letter-spacing: var(--tracking-display); }
-@utility type-sub-3 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-sub-3); line-height: 1; letter-spacing: var(--tracking-display); }
-@utility type-sub-4 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-sub-4); line-height: 1; letter-spacing: var(--tracking-display); }
+@utility type-hero      { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-hero);      line-height: 0.9;  letter-spacing: var(--tracking-display); }
+@utility type-heading-2 { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-heading-2); line-height: 0.9;  letter-spacing: var(--tracking-display); }
+@utility type-heading-3 { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-heading-3); line-height: 0.95; letter-spacing: var(--tracking-display); }
+@utility type-heading-4 { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-heading-4); line-height: 1.15; letter-spacing: var(--tracking-display); }
+@utility type-sub-1 { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-sub-1); line-height: 1; letter-spacing: var(--tracking-display); }
+@utility type-sub-2 { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-sub-2); line-height: 1; letter-spacing: var(--tracking-display); }
+@utility type-sub-3 { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-sub-3); line-height: 1; letter-spacing: var(--tracking-display); }
+@utility type-sub-4 { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-sub-4); line-height: 1; letter-spacing: var(--tracking-display); }
 @utility type-body-1 { font-family: var(--font-body); font-weight: 400; font-size: var(--text-body-1); line-height: 1.2; letter-spacing: var(--tracking-display); }
 @utility type-body-2 { font-family: var(--font-body); font-weight: 400; font-size: var(--text-body-2); line-height: 1.3; letter-spacing: var(--tracking-display); }
 @utility type-body-3 { font-family: var(--font-body); font-weight: 400; font-size: var(--text-body-3); line-height: 1.3; }
 @utility type-body-4 { font-family: var(--font-body); font-weight: 400; font-size: var(--text-body-4); line-height: 1.3; }
-@utility type-control-1 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-control-1); line-height: 1.3; }
-@utility type-control-2 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-control-2); line-height: 1; }
-@utility type-control-3 { font-family: var(--font-heading); font-stretch: 80%; font-weight: 700; font-size: var(--text-control-3); line-height: 1; }
+@utility type-control-1 { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-control-1); line-height: 1.3; }
+@utility type-control-2 { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-control-2); line-height: 1; }
+@utility type-control-3 { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-control-3); line-height: 1; }
 @utility type-control-4 { font-family: var(--font-body);    font-weight: 400; font-size: var(--text-control-4); line-height: 1.3; }
 @utility type-eyebrow   { font-family: var(--font-body); font-weight: 400; font-size: 14px; line-height: 1; letter-spacing: -0.2px; text-transform: uppercase; }

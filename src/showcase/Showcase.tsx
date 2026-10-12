@@ -78,7 +78,7 @@ export function Showcase() {
         </div>
       </Section>
 
-      <Section id="type" title="Typography" note="Mobile scale. Headings use the heading face (Greed in Figma) with −2% tracking; body uses the body face. Stand-in fonts are loaded — see DESIGN_FOUNDATION.md.">
+      <Section id="type" title="Typography" note="Mobile scale. Headings use the heading face (Greed in Figma) with −2% tracking; body uses the body face.">
         <div className="flex flex-col divide-y divide-border-muted rounded-xs border border-black bg-white">
           {type.map(([cls, spec, sample]) => (
             <div key={cls} className="grid grid-cols-[170px_1fr] items-baseline gap-4 px-4 py-3">

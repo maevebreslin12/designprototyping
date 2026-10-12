@@ -12,7 +12,7 @@ Read `DESIGN_FOUNDATION.md` before any UI work. It lists Figma sources, tokens, 
 - **New components** go in `src/components/ui/`, are typed, and are added to the showcase (`src/showcase/Showcase.tsx`) with all states.
 - **New prototype screens** live in `src/compositions/` (or a new `src/prototypes/<name>/`), are registered in `src/App.tsx`, and are built only from existing components.
 - **Placeholder data only.** Never use real customer PII in screens, copy or commits.
-- Assets (logo, illustrations) are placeholders until exported from Figma into `src/assets`; fonts are stand-ins (see deviations).
+- Assets (logo, illustrations) are placeholders until exported from Figma into `src/assets`; brand fonts are git-ignored in `public/fonts/` (see deviations).
 
 ## Commands
 `npm run dev` · `npm run build` (typecheck + build). Routes: `#/` showcase, `#/compositions`, `#/screen/<home|account|login>`.

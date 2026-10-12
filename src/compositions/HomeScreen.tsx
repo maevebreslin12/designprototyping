@@ -29,7 +29,7 @@ export function HomeScreen() {
         <div className="flex w-[300px] shrink-0 overflow-hidden rounded-xs border border-black bg-white">
           <div className="w-[135px] bg-sand-200" aria-hidden />
           <div className="flex flex-1 flex-col items-start gap-2 p-3">
-            <p className="type-body-3 m-0"><strong className="font-heading text-[15px] [font-stretch:80%]">The science has spoken!</strong></p>
+            <p className="type-body-3 m-0"><strong className="font-bold text-[14px]">The science has spoken!</strong></p>
             <p className="type-body-3 m-0 border-t border-border-muted pt-1 text-fg-muted-strong">
               KatKin’s gentle preparing reduces heat compounds (AGEs).
             </p>
